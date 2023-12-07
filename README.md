@@ -1,4 +1,3 @@
-# [2023년 까지 TIL](jaesungahn91.github.io/til)
+### [2023년 까지 TIL](https://jaesungahn91.github.io/TIL/)
 # WIL(2024 ~)
 Weekly I Learned
-
