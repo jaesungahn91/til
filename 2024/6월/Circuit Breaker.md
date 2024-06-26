@@ -45,3 +45,18 @@
 - [Resilience4J](https://resilience4j.readme.io/docs)는 함수형 프로그래밍으로 설계된 경량(lightweight) 장애 허용(fault tolerance) 라이브러리로, 서킷브레이커 패턴을 위해 사용
 - fault-tolerance란 하나 이상의 구성 요소에 문제가 생겨도 시스템이 중단없이 계속 작동할 수 있는 시스템을 의미
 - Resilience4J를 적용하면 외부 서비스에 장애가 발생하여도 자신의 시스템은 계속 작동할 수 있는 것
+
+### Resilience4j 코어 모듈
+Resilience4j 의 코어 모듈은 아래와 같으며, 필요한 모듈을 선택하여 사용할 수 있다.
+- CircuitBreaker : 장애 전파 방지 기능 제공
+- Retry : 요청 실패 시 재시도 처리 기능 제공
+- RateLimiter : 제한치를 넘어서 요청을 거부하거나 Queue 생성하여 처리하는 기능 제공
+- TimeLimiter : 실행 시간제한 설정 기능 제공
+- Bulkhead : 동시 실행 횟수 제한 기능 제공
+- Cache : 결과 캐싱 기능 제공
+
+#### 우선 순위
+각 모듈은 다음과 같은 우선순위로 적용된다. (Retry 모듈이 가장 마지막에 적용)
+```
+Retry(CircuitBreaker(RateLimiter(TimeLimiter(BulkHead(TargetFunction)))))
+```
